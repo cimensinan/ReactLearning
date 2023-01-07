@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // StrickMode console.log gibi çalışan bir yapıya sahip bir componentte console.log kullandığımızda bu StrickMode sebebiyle konsola iki defa yazdırıyor.
   <React.StrictMode>
     <App />
   </React.StrictMode>
