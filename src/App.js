@@ -13,12 +13,15 @@ import Clock1 from "./components/05-clock1/Clock1";
 import Greetings from "./components/06-props-1/greetings";
 import Products from "./components/07-props-2/products";
 import Clock2 from "./components/08-clock2/Clock2";
+import Gallery from "./components/09-image/Gallery";
+import Image from "./components/09-image/image";
+import ProfileCard from "./components/10-profile-card/ProfileCard";
 
 
 const App = () => {
   return(
     <div>
-{/*       <HelloWorld/>
+{/*   <HelloWorld/>
       <Jsx1/>
       <Jsx2/> 
       <Jsx3/> 
@@ -33,7 +36,10 @@ const App = () => {
       <Greetings/> 
       <Products/> 
       <Clock2 textColor="red" bgColor="yellow"/>
-      <Clock2 textColor="blue" bgColor="white"/> */}
+      <Clock2 textColor="blue" bgColor="white"/> 
+      <Image/> 
+      <Gallery/> */}
+      <ProfileCard/>
     </div>
   )
 }
