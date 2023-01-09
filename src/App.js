@@ -39,7 +39,7 @@ const App = () => {
       <Clock2 textColor="blue" bgColor="white"/> 
       <Image/> 
       <Gallery/> */}
-      <ProfileCard/>
+      <ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/>
     </div>
   )
 }
