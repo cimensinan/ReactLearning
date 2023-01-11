@@ -6,6 +6,7 @@ import Jsx3 from "./components/03-jsx/jsx3";
 import Jsx4 from "./components/03-jsx/jsx4";
 import Jsx5 from "./components/03-jsx/jsx5";
 import Jsx6 from "./components/03-jsx/jsx6";
+import Jsx7 from "./components/03-jsx/jsx7";
 import Style1 from "./components/04-styles/style1";
 import Style2 from "./components/04-styles/style2";
 import Style3 from "./components/04-styles/style3";
@@ -17,11 +18,14 @@ import Clock2 from "./components/08-clock2/Clock2";
 import Gallery from "./components/09-image/Gallery";
 import Image from "./components/09-image/image";
 import ProfileCard from "./components/10-profile-card/ProfileCard";
+import Stat from "./components/10-profile-card/Stat";
 import BootstrapDynamic from "./components/11-bootstrap/bootstrap-dynamic";
 import BootstrapStatic from "./components/11-bootstrap/bootstrap.statis";
 import Icon from "./components/12-icons/icon";
 import Events from "./components/13-events/events";
 import Shop from "./components/14-products/shop";
+import State from "./components/15-useState/State";
+import Stateless from "./components/15-useState/Stateless";
 
 
 const App = () => {
@@ -50,8 +54,11 @@ const App = () => {
       <BootstrapDynamic/> 
       <Icon/> 
       <Events/> 
-      <Shop/> */}
-      <ProductList/>
+      <Shop/> 
+      <ProductList/> 
+      <Jsx7/> 
+      <Stateless/> */}
+      <State/>
       
     </div>
   )
