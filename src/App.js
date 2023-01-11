@@ -27,6 +27,7 @@ import Shop from "./components/14-products/shop";
 import State from "./components/15-useState/State";
 import Stateless from "./components/15-useState/Stateless";
 import Counter from "./components/16-counter/Counter";
+import Birthday from "./components/17-birthday/birthday";
 
 
 const App = () => {
@@ -59,8 +60,9 @@ const App = () => {
       <ProductList/> 
       <Jsx7/> 
       <Stateless/> 
-      <State/> */}
-      <Counter/>
+      <State/> 
+      <Counter/> */}
+      <Birthday/>
     </div>
   )
 }

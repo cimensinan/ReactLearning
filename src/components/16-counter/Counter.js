@@ -44,10 +44,11 @@ const Counter = () => {
       <Button variant="light" disabled>
         {counter}
       </Button>
-      <Button variant="warning" onClick={() => handleClick(counter - 1)}>
+      <Button variant="warning" onClick={() => handleClick(counter - 1)} disabled={!counter}>
         <AiOutlineMinusCircle />
       </Button>
-      <Button variant="danger" onClick={() => handleClick(0)}>
+      {/* <Button variant="danger" onClick={() => handleClick(0)} disabled={counter === 0 ? true : false}> */}
+      <Button variant="danger" onClick={() => handleClick(0)} disabled={!counter}>
         <GrPowerReset />
       </Button>
     </ButtonGroup>
