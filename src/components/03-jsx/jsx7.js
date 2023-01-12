@@ -13,6 +13,9 @@ const Jsx7 = ({rate=3}) => {
         }
     } */
 
+    // new Array() => diyerek istediğimiz eleman sayısına sahip bir yeni diziye sahip oluruz.
+    // jsx new Array'ı olduğu gibi yazınca çalıştırmıyor. Çünü daha henüz oluşmamış bir diziyi ben map'leyemiyorum diyor. Bunu aşabilmek için ...new Array() şeklinde oluşturuyorum.
+
   return (
     <div>
         {/* {arr.join("")} */}

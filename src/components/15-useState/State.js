@@ -1,11 +1,20 @@
 import React, {useState} from 'react'
+// Burada useState defaultsuz import edilmiş oluyor.
 import { Button } from 'react-bootstrap'
 
 const State = () => {
 
-    const [mode, setMode] = useState("light")
+    const [mode, setMode] = useState("light") // State'ler render olmaz buranın aşağısında kalan kısım render olur.
 
-    let classNames = "bg-light text-dark p-5";
+    // mode = "dark" // Bu şekilde değişkeni değiştirmemize izin vermez.
+    // Değişkeni değiştimek için setMode kullanmamız gerekir.
+
+    // let mode = "light"; // Yukarıdaki ifade aslında bunun özeti gibi 
+    // const setMode = (m) => {
+    //     mode = m
+    // }
+
+    let classNames = "bg-light text-dark p-5"; // Yukarıda verdiğimiz ilk değerin classNames'i burann içindekiler oldu. // Bu değişkenin karşılığını yazmazsak aşağıda bunu else kısmına eklemek gerekir.
 
     if(mode === "dark"){
         classNames = "bg-dark text-light p-5"
@@ -23,3 +32,5 @@ const State = () => {
 }
 
 export default State
+
+// Kullanıcı tarafında buttonlardan birine basıldığında ekranda meydana gelen bir değişiklik ile 17. satırdan itibaren fonksiyon tekrar render ediliyor.

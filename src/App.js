@@ -61,8 +61,9 @@ const App = () => {
       <Jsx7/> 
       <Stateless/> 
       <State/> 
-      <Counter/> */}
-      <Birthday/>
+      <Counter/> 
+      <Birthday/> */}
+      
     </div>
   )
 }

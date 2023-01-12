@@ -28,11 +28,9 @@ const ProductCard = (props) => {
       <Card.Body className="text-center cBody">
         <Card.Text className='fs-4 rate'>
             {/* {rates.map((item, i) => <span key={i}>{item}</span>)} */}
-            <p>
             {
-                [...new Array(5)].map( (item, index)=> index < rate ? <AiFillStar/> : <AiOutlineStar/>)
+                [...new Array(5)].map( (item, index)=> index < rate ? <AiFillStar key={index}/> : <AiOutlineStar key={index}/>)
             }
-            </p>
         </Card.Text>
         <Card.Title className="fs-4 title">
             {newTitle}
