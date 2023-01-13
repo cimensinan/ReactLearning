@@ -1,5 +1,6 @@
 import HelloWorld from "./components/01-hello-world/hello-world";
 import ProductList from "./components/02-replit-odevi/components/product-list/product-list";
+import ProgressBarComp from "./components/02-replit-odevi/components03/ProgressBarComp";
 import Jsx1 from "./components/03-jsx/jsx1";
 import Jsx2 from "./components/03-jsx/jsx2";
 import Jsx3 from "./components/03-jsx/jsx3";
@@ -70,8 +71,9 @@ const App = () => {
       {false && <UseEffect/>} 
       <UseEffect/> 
       <Clock3/> 
-      <UseEffect2/> */}
-      <CountryFilter/>
+      <UseEffect2/> 
+      <CountryFilter/> 
+      <ProgressBarComp/> */}
     </div>
   )
 }

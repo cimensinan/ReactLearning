@@ -1,0 +1,15 @@
+div.progressBarComp{
+    margin: 1rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 2rem;
+    .btn-group{
+        margin: 1rem 1rem .5rem;
+        .btn{
+            width: 40px;
+        }
+    }
+    .progress{
+        margin: .5rem 1rem 1rem;
+    }
+}

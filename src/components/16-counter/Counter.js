@@ -4,7 +4,7 @@ import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 import { GrPowerReset } from "react-icons/gr";
 
 
-/* 
+/* // Eksi tuşuna bastığımızda eksi tarafa da gitmeye devam edecek.
 const Counter = () => {
   const [counter, setCounter] = useState(0);
   return (
@@ -27,18 +27,19 @@ const Counter = () => {
 export default Counter;
 */
 
-
+// Eksi tuşuna bastığımızda eksi tarafa da gitmeye devam etmyecek. return kısmı kalabalıklaşmasın diye buna ilişkin aşağıdaki gibi bir fonksiyon yazılabilir
 const Counter = () => {
   const [counter, setCounter] = useState(0);
 
-  const handleClick = (val) => { 
+  const handleClick = (val) => {
     if(val < 0) val = 0;
     setCounter(val);
   }
 
   return (
     <ButtonGroup aria-label="Basic example">
-      <Button variant="info" onClick={() => handleClick(counter + 1)}>
+      <Button variant="info" onClick={() => handleClick(counter + 1)}> 
+      {/* Burada handleClick'in içinden gelen değer yukarıdaki fonksiyona parametre olarak gidiyor ve şartı sağlıyorsa setCounter'da tutuluyor. */}
         <AiOutlinePlusCircle />
       </Button>
       <Button variant="light" disabled>
