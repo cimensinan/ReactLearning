@@ -35,6 +35,7 @@ import Clock3 from "./components/19-clock3/Clock3";
 import CountryFilter from "./components/20-country-filter/CountryFilter";
 import Scroll from "./components1/21-useRef/Scroll";
 import UseRef from "./components1/21-useRef/UseRef";
+import ClassComp from "./components1/22-class-type-component/class-comp";
 
 
 const App = () => {
@@ -77,7 +78,8 @@ const App = () => {
       <CountryFilter/> 
       <ProgressBarComp/> 
       <UseRef/> 
-      <Scroll/> */}
+      <Scroll/> 
+      <ClassComp/> */}
     </div>
   )
 }
