@@ -36,6 +36,7 @@ import CountryFilter from "./components/20-country-filter/CountryFilter";
 import Scroll from "./components1/21-useRef/Scroll";
 import UseRef from "./components1/21-useRef/UseRef";
 import ClassComp from "./components1/22-class-type-component/class-comp";
+import UserCards from "./components1/23-fetch-users/UserCards";
 
 
 const App = () => {
@@ -79,8 +80,8 @@ const App = () => {
       <ProgressBarComp/> 
       <UseRef/> 
       <Scroll/> 
-      <ClassComp/> */}
-       <Scroll/>
+      <ClassComp/> 
+      <UserCards/> */}
     </div>
   )
 }
