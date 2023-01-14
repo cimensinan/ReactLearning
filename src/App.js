@@ -71,7 +71,7 @@ const App = () => {
       <State/> 
       <Counter/> 
       <Birthday/> 
-      {false && <UseEffect/>} 
+      {false && <UseEffect/>} // Anlık olarak hafızadan atmak için ve unmounting durumunu görebilmek için yapıldı.
       <UseEffect/> 
       <Clock3/> 
       <UseEffect2/> 
@@ -80,6 +80,7 @@ const App = () => {
       <UseRef/> 
       <Scroll/> 
       <ClassComp/> */}
+      
     </div>
   )
 }

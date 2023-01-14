@@ -31,7 +31,7 @@ const UseEffect = ({id}) => {
         console.log(`
         UPDATING: Bu bölümdeki kodlar alt taraftaki yazılan dependecy'lerin (message, id) değişmesi durumunda çalışır.`)
     }, [message, id])
-    
+    // hem state hem de prop değştiğinde render olduğunu görmek için prop da ekledik.
 
   return (
     <div>
