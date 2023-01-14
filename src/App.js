@@ -80,7 +80,7 @@ const App = () => {
       <UseRef/> 
       <Scroll/> 
       <ClassComp/> */}
-      
+       <Scroll/>
     </div>
   )
 }

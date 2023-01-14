@@ -3,9 +3,9 @@
     color: white;
     padding: 2rem;
     margin: 2rem 0;
-    transform: translateX(150%);
+    transform: translateX(150%); // ekranda x ekseninde ekrana göre % 150 daha sağda dur demiş olduk.
     transition: transform 1s;
-    &.active{
-        transform: translateX(0);
+    &.active{ //.about-us.active demiş olduk. Yani parentları aynı olan iki class tanımladık.
+        transform: translateX(0); // ekranda x ekseninde ekrana göre normal yerine gel demiş olduk.
     }
 }
