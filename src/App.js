@@ -37,6 +37,7 @@ import Scroll from "./components1/21-useRef/Scroll";
 import UseRef from "./components1/21-useRef/UseRef";
 import ClassComp from "./components1/22-class-type-component/class-comp";
 import UserCards from "./components1/23-fetch-users/UserCards";
+import Countries from "./components1/24-axios-countries/Countries";
 
 
 const App = () => {
@@ -82,6 +83,7 @@ const App = () => {
       <Scroll/> 
       <ClassComp/> 
       <UserCards/> */}
+      <Countries/>
     </div>
   )
 }
