@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 const UserCard = (props) => {
-
+    // users şeklinde oluşturduğumuz mockapi'daki datalarımızı burada propsun içine destructuring yaparak yerleştiriyoruz.
     const {id, firstName, lastName, email, avatar} = props
 
   return (
