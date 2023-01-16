@@ -38,6 +38,11 @@ import UseRef from "./components1/21-useRef/UseRef";
 import ClassComp from "./components1/22-class-type-component/class-comp";
 import UserCards from "./components1/23-fetch-users/UserCards";
 import Countries from "./components1/24-axios-countries/Countries";
+import ParentComp from "./components1/25-child-to-parent/ParentComp";
+import Form1 from "./components1/26-forms/Form1";
+import Form2 from "./components1/26-forms/Form2";
+import Form3 from "./components1/26-forms/Form3";
+import Form4 from "./components1/26-forms/Form4";
 
 
 const App = () => {
@@ -82,8 +87,13 @@ const App = () => {
       <UseRef/> 
       <Scroll/> 
       <ClassComp/> 
-      <UserCards/> */}
-      <Countries/>
+      <UserCards/> 
+      <Countries/> 
+      <ParentComp/> 
+      <Form1/> 
+      <Form2/> 
+      <Form3/> 
+      <Form4/> */}
     </div>
   )
 }
