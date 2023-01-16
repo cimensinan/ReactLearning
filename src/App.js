@@ -21,7 +21,7 @@ import Image from "./components/09-image/image";
 import ProfileCard from "./components/10-profile-card/ProfileCard";
 import Stat from "./components/10-profile-card/Stat";
 import BootstrapDynamic from "./components/11-bootstrap/bootstrap-dynamic";
-import BootstrapStatic from "./components/11-bootstrap/bootstrap.statis";
+import BootstrapStatic from "./components/11-bootstrap/bootstrap.static";
 import Icon from "./components/12-icons/icon";
 import Events from "./components/13-events/events";
 import Shop from "./components/14-products/shop";

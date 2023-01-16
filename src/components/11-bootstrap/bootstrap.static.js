@@ -1,5 +1,6 @@
 import React from "react";
 const BootstrapStatic = () => {
+  // Klasik bootstrap sayfasından aldığımızın yapılarda kapatlmayan tag'lar varsa hata vereceğinden kapatma "/" işlemini yapmamız gerekir ve class ifadelerini de className diyerek düzeltmek gerekiyor.
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">

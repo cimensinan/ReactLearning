@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
 
 const BootstrapDynamic = () => {
+  // Her bir componenti ayrı ayrı import etmek yerine tek bir süslü parantez içinde kullandıklarımızın hepsini import edebiliriz. İmport ederken sondaki bir harfi silip geri yazarken çıkan emmet özelliği ile tab'a basarak otomatik import'u yapabiliriz.
   return (
     <Navbar bg="light" expand="lg">
       <Container>
