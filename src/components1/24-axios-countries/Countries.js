@@ -122,6 +122,7 @@ const Countries = () => {
       }) */
 
       setCountries(arr);
+      console.log(countries)
       setLoading(false)
     } catch (err) {
       console.log(err);
