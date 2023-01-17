@@ -3,11 +3,11 @@ import React from "react";
 
 const Country = (props) => {
 
-  const { flag, name, population, capital, currencies } = props;
+  const { index, flag, name, population, capital, currencies } = props;
 
   return (
     <tr>
-      <td>1</td>
+      <td>{index + 1}</td>
       <td>
         <img src={flag} alt="" />
       </td>

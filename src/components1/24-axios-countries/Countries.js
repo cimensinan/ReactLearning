@@ -64,7 +64,7 @@ export default Countries */
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Spinner, Table } from "react-bootstrap";
 import Country from "./Country";
 
 const Countries = () => {
@@ -72,29 +72,70 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fonksiyon olduğundan çağrıldığında çalışır.
   const loadData = async () => {
+    // await axios yönteminde try catch kullanımı da aşağıdaki gibidir. awaitsiz ve then'li yapı kullanmayı tercih ettiğimizde ise klasik then kullanımından sonra catch kullanımına geçilir.
     try {
       const resp = await axios.get("https://restcountries.com/v3.1/all");
       
-      const arr = resp.data.map((item) => ({
+      // useState yapısında tuttuğumuz countries yapımıza üstteki url'den gelen endpointi olduğu gibi göndermek gereksiz bir veri aktarımına neden olacağı için bu api'dan kendi dizimizi oluştururup onu göndermek daha sağlıklıdır.
+      
+      /* const arr = resp.data.map((item, index) => {
+        return {
+        index: index,
         flag: item.flags.png,
         name: item.name.common,
         population: item.population,
         capital: item.capital?.join("-"),
         currencies: item.currencies ? Object.keys(item.currencies).map(cur => item.currencies[cur].name).join(" - ") : ""
+        }
+      } */
+
+      // Ayrıca burada return ifadesi kullanmamak için () normal parantezleri kullanaraktan map'e tek satırlık işlem yapacaksın demeye çalışıyoruz.
+      
+      const arr = resp.data.map((item, index) => ({
+        index: index,
+        flag: item.flags.png,
+        name: item.name.common,
+        population: item.population,
+        // Birden fazla başkente sahip ülkeler bulunduğu için bunları "join" ile birleştirdik. İlkini almak isteseydik "item.capital[0]"" diyebilirdik. Ayrıca başkenti olmayan ülkeler bulunduğu için capital ifadesinden sonra nullish yapısını "?"" koyduk bu alan boş(null) değilse, false değilse başkentini getir dedik.
+        capital: item.capital?.join("-"),
+        // endpointteki currencies yapısı obje içinde obje şeklinde tanımlanmış. Bu sebeple öncelikle her ülkenin currencies değeri olmadığından değeri varsa diye bir şart koyuyoruz. Yoksa ("") boş string getir diyoruz. Sonrasında "Object.keys()" yapısı ile item.currencies objesinin key değerlerine yani "CKD" ve "NZD" ifadelerine erişiyoruz. Ancak biz key'lerin içerisinde yazan name key'ine ulaşmak istediğimizden elde ettiğimiz diziyi map ile yeni bir dizi haline daha getiriyoruz ve key'i [cur] olanın içinden name değerini aralarına (-) koyarak join ile yazdırıyoruz. (cur ifadesi bizim belirlediğimiz item benzeri bir ifade)
+        currencies: item.currencies ? Object.keys(item.currencies).map(cur => item.currencies[cur].name).join(" - ") : ""
       }));
+
+      /* currencies: {
+        "CKD": {
+            "name": "Cook Islands dollar",
+            "symbol": "$"
+        },
+        "NZD": {
+            "name": "New Zealand dollar",
+            "symbol": "$"
+        }
+      } */
+
+      // Datadan herhangi bir veriyi silip yeni bir dizi yapmak istediğimizde aşağıdaki gibi bir fonksiyon ve delete methodu kullanılabilir.
+      /* const arr =resp.data.map((item) => {
+        delete item.region;
+        return item
+      }) */
+
       setCountries(arr);
+      setLoading(false)
     } catch (err) {
       console.log(err);
     }
   };
 
+  // useEffect yapıları return işleminden sonra çalışır.
   useEffect(() => {
     loadData();
   }, []);
 
   return (
-    <Table striped bordered hover>
+    <div>
+      <Table striped bordered hover>
       <thead>
         <tr>
           <th>#</th>
@@ -106,11 +147,14 @@ const Countries = () => {
         </tr>
       </thead>
       <tbody>
+        {/* Yukarıdaki arr fonksiyonumuzla kullanmayacağımız datalardan arındırılmış yapıyı buraya gönderdik. */}
         {countries.map((item) => (
           <Country {...item} key={item.name}/>
         ))}
       </tbody>
     </Table>
+    {loading && <Spinner animation="border" variant="primary"/>}
+    </div>
   );
 };
 
