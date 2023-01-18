@@ -4,9 +4,9 @@ import Header from "./components/00-home/header/header";
 import Menu from "./components/00-home/menu/menu";
 import HelloWorld from "./components/01-hello-world/hello-world";
 import HelloReact from "./components/02-hello-react/hello-react";
-import ToDoApp from "./components/02-replit-odevi/component04/ToDoApp";
 import ProductList from "./components/02-replit-odevi/components/product-list/product-list";
 import ProgressBarComp from "./components/02-replit-odevi/components03/ProgressBarComp";
+import ToDoApp from "./components/02-replit-odevi/components04/ToDoApp";
 import Jsx1 from "./components/03-jsx/jsx1";
 import Jsx2 from "./components/03-jsx/jsx2";
 import Jsx3 from "./components/03-jsx/jsx3";
@@ -25,9 +25,8 @@ import Clock2 from "./components/08-clock2/Clock2";
 import Gallery from "./components/09-image/Gallery";
 import Image from "./components/09-image/image";
 import ProfileCard from "./components/10-profile-card/ProfileCard";
-import Stat from "./components/10-profile-card/Stat";
 import BootstrapDynamic from "./components/11-bootstrap/bootstrap-dynamic";
-import BootstrapStatic from "./components/11-bootstrap/bootstrap.static";
+import BootstrapStatic from "./components/11-bootstrap/bootstrap-static";
 import Icon from "./components/12-icons/icon";
 import Events from "./components/13-events/events";
 import Shop from "./components/14-products/shop";
@@ -51,14 +50,13 @@ import Form3 from "./components1/26-forms/Form3";
 import Form4 from "./components1/26-forms/Form4";
 import Form5 from "./components1/26-forms/Form5";
 import Form6 from "./components1/26-forms/Form6";
-import Parent from "./Grup-Calismasi/02-Practice/Parent";
+
 
 
 const App = () => {
   return(
     <BrowserRouter>
     <Header/>
-
     <Container fluid>
       <Row>
         <Col sm={2}>
@@ -73,10 +71,51 @@ const App = () => {
             <Route path="/jsx3" element={<Jsx3/>}/>
             <Route path="/jsx4" element={<Jsx4/>}/>
             <Route path="/jsx5" element={<Jsx5/>}/>
+            <Route path="/jsx6" element={<Jsx6/>}/>
+            <Route path="/jsx7" element={<Jsx7/>}/>
+            <Route path="/style1" element={<Style1/>}/>
+            <Route path="/style2" element={<Style2/>}/>
+            <Route path="/style3" element={<Style3/>}/>
+            <Route path="/style4" element={<Style4/>}/>
+            <Route path="/Clock1" element={<Clock1/>}/>
+            <Route path="/greetings" element={<Greetings/>}/>
+            <Route path="/products" element={<Products/>}/>
+            <Route path="/products" element={<Products/>}/>
+            <Route path="/Clock2" element={<Clock2 textColor="red" bgColor="yellow"/>}/>
+            <Route path="/image" element={<Image/>}/>
+            <Route path="/Gallery" element={<Gallery/>}/>
+            <Route path="/ProfileCard" element={<ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/>}/>
+            <Route path="/BootstrapStatic" element={<BootstrapStatic/>}/>
+            <Route path="/BootstrapDynamic" element={<BootstrapDynamic/>}/>
+            <Route path="/Icon" element={<Icon/>}/>
+            <Route path="/Events" element={<Events/>}/>
+            <Route path="/Shop" element={<Shop/>}/>
+            <Route path="/State" element={<State/>}/>
+            <Route path="/Stateless" element={<Stateless/>}/>
+            <Route path="/Counter" element={<Counter/>}/>
+            <Route path="/Birthday" element={<Birthday/>}/>
+            <Route path="/UseEffect" element={<UseEffect/>}/>
+            <Route path="/UseEffect2" element={<UseEffect2/>}/>
+            <Route path="/Clock3" element={<Clock3/>}/>
+            <Route path="/CountryFilter" element={<CountryFilter/>}/>
+            <Route path="/UseRef" element={<UseRef/>}/>
+            <Route path="/Scroll" element={<Scroll/>}/>
+            <Route path="/ClassComp" element={<ClassComp/>}/>
+            <Route path="/UserCards" element={<UserCards/>}/>
+            <Route path="/Countries" element={<Countries/>}/>
+            <Route path="/ParentComp" element={<ParentComp/>}/>
+            <Route path="/Form1" element={<Form1/>}/>
+            <Route path="/Form2" element={<Form2/>}/>
+            <Route path="/Form3" element={<Form3/>}/>
+            <Route path="/Form4" element={<Form4/>}/>
+            <Route path="/Form5" element={<Form5/>}/>
+            <Route path="/Form6" element={<Form6/>}/>
+          
           </Routes>
         </Col>
       </Row>
     </Container>
+    
 {/*   <HelloWorld/>
       <Jsx1/>
       <Jsx2/> 
@@ -123,10 +162,11 @@ const App = () => {
       <Form2/> 
       <Form3/> 
       <Form4/> 
-      <ToDoApp/> 
       <Form5/> 
-      <Form6/> */}
-    </BrowserRouter>
+      <Form6/> 
+      <ToDoApp/> */}
+      </BrowserRouter>
+      
   )
 }
 
