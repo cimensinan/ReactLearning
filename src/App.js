@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/00-home/header/header";
@@ -50,123 +52,145 @@ import Form3 from "./components1/26-forms/Form3";
 import Form4 from "./components1/26-forms/Form4";
 import Form5 from "./components1/26-forms/Form5";
 import Form6 from "./components1/26-forms/Form6";
+import Exchange from "./components1/27-context-api/Exchange";
+import StoreContext from "./store";
 
 
 
 const App = () => {
+
+  const [counter, setCounter] = useState(10)
+  const [currencies, setCurrencies] = useState({})
+
+  const loadData = async () => { 
+    try {
+      const resp = await axios.get("https://api.frankfurter.app/latest?from=TRY")
+      setCurrencies(resp.data.rates)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+  
+
   return(
-    <BrowserRouter>
-    <Header/>
-    <Container fluid>
-      <Row>
-        <Col sm={2}>
-          <Menu/>
-        </Col>
-        <Col sm={10}>
-          <Routes>
-            <Route path="/hello-world" element={<HelloWorld/>}/>
-            <Route path="/hello-react" element={<HelloReact/>}/>
-            <Route path="/jsx1" element={<Jsx1/>}/>
-            <Route path="/jsx2" element={<Jsx2/>}/>
-            <Route path="/jsx3" element={<Jsx3/>}/>
-            <Route path="/jsx4" element={<Jsx4/>}/>
-            <Route path="/jsx5" element={<Jsx5/>}/>
-            <Route path="/jsx6" element={<Jsx6/>}/>
-            <Route path="/jsx7" element={<Jsx7/>}/>
-            <Route path="/style1" element={<Style1/>}/>
-            <Route path="/style2" element={<Style2/>}/>
-            <Route path="/style3" element={<Style3/>}/>
-            <Route path="/style4" element={<Style4/>}/>
-            <Route path="/Clock1" element={<Clock1/>}/>
-            <Route path="/greetings" element={<Greetings/>}/>
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/Clock2" element={<Clock2 textColor="red" bgColor="yellow"/>}/>
-            <Route path="/image" element={<Image/>}/>
-            <Route path="/Gallery" element={<Gallery/>}/>
-            <Route path="/ProfileCard" element={<ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/>}/>
-            <Route path="/BootstrapStatic" element={<BootstrapStatic/>}/>
-            <Route path="/BootstrapDynamic" element={<BootstrapDynamic/>}/>
-            <Route path="/Icon" element={<Icon/>}/>
-            <Route path="/Events" element={<Events/>}/>
-            <Route path="/Shop" element={<Shop/>}/>
-            <Route path="/State" element={<State/>}/>
-            <Route path="/Stateless" element={<Stateless/>}/>
-            <Route path="/Counter" element={<Counter/>}/>
-            <Route path="/Birthday" element={<Birthday/>}/>
-            <Route path="/UseEffect" element={<UseEffect/>}/>
-            <Route path="/UseEffect2" element={<UseEffect2/>}/>
-            <Route path="/Clock3" element={<Clock3/>}/>
-            <Route path="/CountryFilter" element={<CountryFilter/>}/>
-            <Route path="/UseRef" element={<UseRef/>}/>
-            <Route path="/Scroll" element={<Scroll/>}/>
-            <Route path="/ClassComp" element={<ClassComp/>}/>
-            <Route path="/UserCards" element={<UserCards/>}/>
-            <Route path="/Countries" element={<Countries/>}/>
-            <Route path="/ParentComp" element={<ParentComp/>}/>
-            <Route path="/Form1" element={<Form1/>}/>
-            <Route path="/Form2" element={<Form2/>}/>
-            <Route path="/Form3" element={<Form3/>}/>
-            <Route path="/Form4" element={<Form4/>}/>
-            <Route path="/Form5" element={<Form5/>}/>
-            <Route path="/Form6" element={<Form6/>}/>
-          
-          </Routes>
-        </Col>
-      </Row>
-    </Container>
-    
-{/*   <HelloWorld/>
-      <Jsx1/>
-      <Jsx2/> 
-      <Jsx3/> 
-      <Jsx4/> 
-      <Jsx5/> 
-      <Jsx6/> 
-      <Style1/> 
-      <Style2/> 
-      <Style3/> 
-      <Style4/> 
-      <Clock1/> 
-      <Greetings/> 
-      <Products/> 
-      <Clock2 textColor="red" bgColor="yellow"/>
-      <Clock2 textColor="blue" bgColor="white"/> 
-      <Image/> 
-      <Gallery/> 
-      <ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/> 
-      <BootstrapStatic/> 
-      <BootstrapDynamic/> 
-      <Icon/> 
-      <Events/> 
-      <Shop/> 
-      <ProductList/> 
-      <Jsx7/> 
-      <Stateless/> 
-      <State/> 
-      <Counter/> 
-      <Birthday/> 
-      {false && <UseEffect/>} // Anlık olarak hafızadan atmak için ve unmounting durumunu görebilmek için yapıldı.
-      <UseEffect/> 
-      <Clock3/> 
-      <UseEffect2/> 
-      <CountryFilter/> 
-      <ProgressBarComp/> 
-      <UseRef/> 
-      <Scroll/> 
-      <ClassComp/> 
-      <UserCards/> 
-      <Countries/> 
-      <ParentComp/> 
-      <Form1/> 
-      <Form2/> 
-      <Form3/> 
-      <Form4/> 
-      <Form5/> 
-      <Form6/> 
-      <ToDoApp/> */}
-      </BrowserRouter>
+    <StoreContext.Provider value={{counter, setCounter, currencies}}>
+      <BrowserRouter>
+      <Header/>
+      <Container fluid>
+        <Row>
+          <Col sm={2}>
+            <Menu/>
+          </Col>
+          <Col sm={10}>
+            <Routes>
+              <Route path="/hello-world" element={<HelloWorld/>}/>
+              <Route path="/hello-react" element={<HelloReact/>}/>
+              <Route path="/jsx1" element={<Jsx1/>}/>
+              <Route path="/jsx2" element={<Jsx2/>}/>
+              <Route path="/jsx3" element={<Jsx3/>}/>
+              <Route path="/jsx4" element={<Jsx4/>}/>
+              <Route path="/jsx5" element={<Jsx5/>}/>
+              <Route path="/jsx6" element={<Jsx6/>}/>
+              <Route path="/jsx7" element={<Jsx7/>}/>
+              <Route path="/style1" element={<Style1/>}/>
+              <Route path="/style2" element={<Style2/>}/>
+              <Route path="/style3" element={<Style3/>}/>
+              <Route path="/style4" element={<Style4/>}/>
+              <Route path="/Clock1" element={<Clock1/>}/>
+              <Route path="/greetings" element={<Greetings/>}/>
+              <Route path="/products" element={<Products/>}/>
+              <Route path="/products" element={<Products/>}/>
+              <Route path="/Clock2" element={<Clock2 textColor="red" bgColor="yellow"/>}/>
+              <Route path="/image" element={<Image/>}/>
+              <Route path="/Gallery" element={<Gallery/>}/>
+              <Route path="/ProfileCard" element={<ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/>}/>
+              <Route path="/bootstrap-static" element={<BootstrapStatic/>}/>
+              <Route path="/bootstrap-dynamic" element={<BootstrapDynamic/>}/>
+              <Route path="/Icon" element={<Icon/>}/>
+              <Route path="/Events" element={<Events/>}/>
+              <Route path="/Shop" element={<Shop/>}/>
+              <Route path="/State" element={<State/>}/>
+              <Route path="/Stateless" element={<Stateless/>}/>
+              <Route path="/Counter" element={<Counter/>}/>
+              <Route path="/Birthday" element={<Birthday/>}/>
+              <Route path="/UseEffect" element={<UseEffect/>}/>
+              <Route path="/UseEffect2" element={<UseEffect2/>}/>
+              <Route path="/Clock3" element={<Clock3/>}/>
+              <Route path="/CountryFilter" element={<CountryFilter/>}/>
+              <Route path="/UseRef" element={<UseRef/>}/>
+              <Route path="/Scroll" element={<Scroll/>}/>
+              <Route path="/ClassComp" element={<ClassComp/>}/>
+              <Route path="/UserCards" element={<UserCards/>}/>
+              <Route path="/Countries" element={<Countries/>}/>
+              <Route path="/ParentComp" element={<ParentComp/>}/>
+              <Route path="/Form1" element={<Form1/>}/>
+              <Route path="/Form2" element={<Form2/>}/>
+              <Route path="/Form3" element={<Form3/>}/>
+              <Route path="/Form4" element={<Form4/>}/>
+              <Route path="/Form5" element={<Form5/>}/>
+              <Route path="/Form6" element={<Form6/>}/>
+              <Route path="/Exchange" element={<Exchange/>}/>
+            
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
       
+  {/*   <HelloWorld/>
+        <Jsx1/>
+        <Jsx2/> 
+        <Jsx3/> 
+        <Jsx4/> 
+        <Jsx5/> 
+        <Jsx6/> 
+        <Style1/> 
+        <Style2/> 
+        <Style3/> 
+        <Style4/> 
+        <Clock1/> 
+        <Greetings/> 
+        <Products/> 
+        <Clock2 textColor="red" bgColor="yellow"/>
+        <Clock2 textColor="blue" bgColor="white"/> 
+        <Image/> 
+        <Gallery/> 
+        <ProfileCard avatar="profile.jpg" name="Ayşe Gel" location="Turkey, İstanbul" shot="1" followers="2" following="10"/> 
+        <BootstrapStatic/> 
+        <BootstrapDynamic/> 
+        <Icon/> 
+        <Events/> 
+        <Shop/> 
+        <ProductList/> 
+        <Jsx7/> 
+        <Stateless/> 
+        <State/> 
+        <Counter/> 
+        <Birthday/> 
+        {false && <UseEffect/>} // Anlık olarak hafızadan atmak için ve unmounting durumunu görebilmek için yapıldı.
+        <UseEffect/> 
+        <Clock3/> 
+        <UseEffect2/> 
+        <CountryFilter/> 
+        <ProgressBarComp/> 
+        <UseRef/> 
+        <Scroll/> 
+        <ClassComp/> 
+        <UserCards/> 
+        <Countries/> 
+        <ParentComp/> 
+        <Form1/> 
+        <Form2/> 
+        <Form3/> 
+        <Form4/> 
+        <Form5/> 
+        <Form6/> 
+        <ToDoApp/> */}
+      </BrowserRouter>
+    </StoreContext.Provider>
   )
 }
 

@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import menu from "./menu.json";
+import "./menu.scss";
 
 const Menu = () => {
+
+  const [target, setTarget] = useState(null);
+
+  const handleCollapse = (e) => { 
+    e.target.classList.toggle("collapsed");
+   }
+
+
   return (
-    <nav>
+    <nav className='main-nav'>
         <ul>
-            <li><Link to="/hello-world">Hello World</Link></li>
+        {
+          menu.map(mainItem=> <li key={mainItem.title} className={mainItem.children && "collapsable"}>
+            {mainItem.children ? <div  onClick={handleCollapse}>{mainItem.title}</div> : <div><Link to={mainItem.to}>{mainItem.title}</Link></div>}
+
+            {mainItem.children && <ul>{mainItem.children.map(subItem=> <li key={subItem.title}><Link to={subItem.to}>{subItem.title}</Link></li> )}</ul>}
+          </li>)
+        }
+            {/* <li><Link to="/hello-world">Hello World</Link></li>
             <li><Link to="/hello-react">Hello React</Link></li>
             <li><Link to="/jsx1">JSX1</Link></li>
             <li><Link to="/jsx2">JSX2</Link></li>
@@ -50,7 +67,7 @@ const Menu = () => {
             <li><Link to="/Form3">Form3</Link></li>
             <li><Link to="/Form4">Form4</Link></li>
             <li><Link to="/Form5">Form5</Link></li>
-            <li><Link to="/Form6">Form6</Link></li>
+            <li><Link to="/Form6">Form6</Link></li> */}
             
         </ul>
     </nav>
