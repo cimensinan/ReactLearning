@@ -4,7 +4,7 @@ import Header from "./components/00-home/header/header";
 import Menu from "./components/00-home/menu/menu";
 import HelloWorld from "./components/01-hello-world/hello-world";
 import HelloReact from "./components/02-hello-react/hello-react";
-import ProductList from "./components/02-replit-odevi/components/product-list/product-list";
+import ProductList from "./components/02-replit-odevi/components02/product-list/product-list";
 import ProgressBarComp from "./components/02-replit-odevi/components03/ProgressBarComp";
 import ToDoApp from "./components/02-replit-odevi/components04/ToDoApp";
 import Jsx1 from "./components/03-jsx/jsx1";
