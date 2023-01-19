@@ -22,9 +22,12 @@ const Form3 = () => {
           <Form.Control
             type="text"
             placeholder="Adınızı giriniz"
+            // Her bir datayı ayrı ayrı state yapısı kurup tutmadığımız için burada firstName'in hangi state yapısı içinde olduğunu ifade etmemiz gerekiyor.
             value={formData.firstName}
-            // Tek bir data olduğu için elimizde onChange'in içinde önce spread operatörü kullanarak datamızı shallow copy yapıyoruz ve içerisinde sadece ilgili değerimizi textbox'tan gelen değer ile değiştir demiş oluyoruz. Ayrıca setter ile getter'ı aynı anda kullanınca karşılaştığımız problem shallow copy ile ortadan kalkıyor.
+            // Tek bir data olduğu için elimizde onChange'in içinde önce spread operatörü kullanarak datamızı shallow copy yapıyoruz ve içerisinde sadece ilgili değerimizi textbox'tan gelen değer ile değiştir demiş oluyoruz. Ayrıca setter ile getter'ı aynı anda kullanınca karşılaştığımız problem yani prev kullanma zorunluluğu, shallow copy ile ortadan kalkıyor.
             onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+            // Üstteki spread ile yapılmış yapının uzun hali aşağıdaki gibi olacaktır. Sadece firstName key'inin valuesini değiştirdik ve diğerlerini formData'daki haliyle tutmuş oldu.
+            // onChange={(e) => setFormData({firstName: e.target.value, lastname: formData.lastName, phone: formData.phone, email: formData.email})}
           />
         </Form.Group>
         <Form.Group className="mb-3">
