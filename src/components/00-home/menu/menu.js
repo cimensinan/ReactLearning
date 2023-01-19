@@ -11,17 +11,23 @@ const Menu = () => {
     e.target.classList.toggle("collapsed");
    }
 
-
+  // Burada ise içindekiler bölümü benzeri nav tagının içine ul-li'ler ile bir navigasyon kısmı oluşturuyoruz.
   return (
     <nav className='main-nav'>
         <ul>
-        {
-          menu.map(mainItem=> <li key={mainItem.title} className={mainItem.children && "collapsable"}>
-            {mainItem.children ? <div  onClick={handleCollapse}>{mainItem.title}</div> : <div><Link to={mainItem.to}>{mainItem.title}</Link></div>}
+          {/* Burada ise aşağıda yorum satırına aldığımız değerleri menu.json adında bir dizi oluşturup oradan çektik. Eğer json dosyasında ilgili component başlıkları içinde birden fazla component varsa(children) collapsable class'ı ile alt başlık şeklinde gözükmesini sağladık. */}
+          {/* Children'ı olmayanlara link tagı olan to ifadesini eklemedik. */}
+          {/* Yukarıda onClick olduğunda ne yapılacağına ilişkin de bir handleCollapse fonksiyonu tanımlayarak toggle ise collapse class'ı ekledik. */}
+          {
+            menu.map(mainItem => (
+            <li key = {mainItem.title} className ={mainItem.children && "collapsable"}>
+              {mainItem.children ? <div onClick = {handleCollapse}>{mainItem.title}</div> : <div><Link to = {mainItem.to}>{mainItem.title}</Link></div>}
 
-            {mainItem.children && <ul>{mainItem.children.map(subItem=> <li key={subItem.title}><Link to={subItem.to}>{subItem.title}</Link></li> )}</ul>}
-          </li>)
-        }
+              {mainItem.children && <ul>{mainItem.children.map(subItem => (<li key ={subItem.title}><Link to = {subItem.to}>{subItem.title}</Link></li>))}</ul>}
+            </li>))
+          }
+            {/* li tag'larının içine Link adında bir component koyuyoruz. Sonrasında to dediğimiz yer ile app'deki path dediğimiz yer aynı olacak şekilde componentimizin dosya adını belirtiyoruz. Link componentinin arasına da sayfamızın adının nasıl gözükmesini istiyorsak onu yazıyoruz. */}
+            {/* a tagları yerine Link taglarını kullanıyoruz. a tagları sayfayı baştan yüklerken bunlar sadece ilgili yeri ekrana getirir. */}
             {/* <li><Link to="/hello-world">Hello World</Link></li>
             <li><Link to="/hello-react">Hello React</Link></li>
             <li><Link to="/jsx1">JSX1</Link></li>

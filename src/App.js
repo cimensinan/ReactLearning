@@ -78,15 +78,25 @@ const App = () => {
 
   return(
     <StoreContext.Provider value={{counter, setCounter, currencies}}>
+      {/* Router kütüphanesini kullanırken tüm yapıyı <BrowserRouter componenti ile sarmallıyoruz.*/}
       <BrowserRouter>
+      {/* Klasik web sayfasında olan Header'ı ve Menu yapılarımızı da ayrıca oluşturup buraya ekliyoruz. */}
       <Header/>
       <Container fluid>
         <Row>
           <Col sm={2}>
+            {/* Solda menü kısmımız */}
             <Menu/>
           </Col>
           <Col sm={10}>
+            {/* Sağda ise tıkladığımızda gelen içerik kısmımız */}
+            {/* Burada da tek bir "Routes" componentine yer vererek tüm nav elemanlarımızı sarmallayarak listelenmesini sağlıyoruz. */}
             <Routes>
+              {/* ulaşılmak istenen her sayfayı ya da componenti burada Route componentinin içine yazıyoruz. */}
+              {/* path dediğimiz kısım componente nasıl ulaşılacağını ifade eden kısım */}
+              {/* element dediğimiz kısım ise componentimize verdiğimiz isim kısmı */}
+              {/* MyApp projesinin herhangi bir anasayfası yok ancak anasayfa olsaydı "<Route path:"/" element={<Home/>}/>" dememiz gerekiyordu. Hiç birine girmediği zaman otomatik bu anasayfa gözükecek şekilde ayarlamış olurduk. */}
+              
               <Route path="/hello-world" element={<HelloWorld/>}/>
               <Route path="/hello-react" element={<HelloReact/>}/>
               <Route path="/jsx1" element={<Jsx1/>}/>
