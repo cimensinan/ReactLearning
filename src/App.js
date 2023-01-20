@@ -62,9 +62,12 @@ const App = () => {
   const [counter, setCounter] = useState(10)
   const [currencies, setCurrencies] = useState({})
 
+  // axios ile api'dan veri çekme işlemini de burada gerçekleştiriyoruz ve state yapısını da yukarıdaki gibi oluşturuyoruz ki tüm componentlerden erişim sağlanabilsin
+  // Uygulamanın bir çok yerini ilgilendiren api'leri bizim app'.js'de çekmemiz gerekir. Login olma kişinin tokeninin çekilmesi, sayfanın dil yapısı gibi.
   const loadData = async () => { 
     try {
       const resp = await axios.get("https://api.frankfurter.app/latest?from=TRY")
+      // Bize datanın sadece rates kısmı lazım olduğu için state'de koyduk
       setCurrencies(resp.data.rates)
     } catch (err) {
       console.log(err)
@@ -75,8 +78,12 @@ const App = () => {
     loadData()
   }, [])
   
+  // Bütün uygulama boyunca çalışması ve güncellenmesi gereken yapılarımız var ise bunları setInterval ile değil "workers" ile çalıştırırız.
 
   return(
+    // Oluşturduğumuz boş merkezi state'i burada tüm App'imizi sarmallayacak şekilde yerleştiriyoruz. Tamamını sarmallamak zorunda değiliz merkezi state ulaşsın istediğimiz yerleri de sarmallayabiliriz ama genelde her yerden bu yapıya ulaşılsın istediğimizden tüm app'i sarmallarız.
+    // Bu yapıya value değeri eklemeden bir anlamı olmadığı için value değerini de ekliyoruz ve yukarıda oluşturacağımız state'leri burada süslü parantezler içine yerleştireceğiz. Burada adı da valuesi de aynı olduğu için obje yapımızda ifadeleri bir kez kullanıyoruz.
+    // Value değerinin içine koyduğumuzun her şey tüm componentlerden ulaşabiliyoruz.
     <StoreContext.Provider value={{counter, setCounter, currencies}}>
       {/* Router kütüphanesini kullanırken tüm yapıyı <BrowserRouter componenti ile sarmallıyoruz.*/}
       <BrowserRouter>

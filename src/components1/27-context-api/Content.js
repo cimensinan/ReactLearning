@@ -4,13 +4,16 @@ import StoreContext from "../../store";
 
 const Content = () => {
 
+    // Formun bölümleri için ayrı ayrı state yapısı oluşturuyoruz.
     const [amount, setAmount] = useState(1)
     const [currency, setCurrency] = useState("USD")
     const [result, setResult] = useState(0)
 
+    // Merkezi state'imizi de çağırıyoruz.
     const store = useContext(StoreContext);
     const { currencies } = store
 
+    // amount ve currency değerleri değiştikçe result kısmında sonucumuzu aşağıdaki formülümüz üzerinden hesaplanıp gözükecektir.
     useEffect(() => {
       const rslt = (amount / currencies[currency]).toFixed(2)
       setResult(rslt)
@@ -21,6 +24,7 @@ const Content = () => {
     <div className="p-5">
       <InputGroup className="mb-3">
         <Form.Control value={amount} onChange={(e) => setAmount(e.target.value)}/>
+        {/* select kısmında value kısımları önemli çünkü select kısmında aşağıdaki value değerlerinden hangisi seçiliyse onu getiriyor. */}
         <Form.Select value={currency} onChange={(e) => setCurrency(e.target.value)}>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
